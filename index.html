@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Consulta el clima actual de cualquier ciudad" />
+    <title>Pronóstico del clima</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="weather-card" aria-labelledby="app-title">
+        <header class="hero">
+          <p class="eyebrow">Open-Meteo</p>
+          <h1 id="app-title">Clima de tu ciudad</h1>
+          <p>Consulta la temperatura, humedad y precipitación actuales.</p>
+        </header>
+
+        <form id="city-search-form" class="search-form" novalidate>
+          <label for="city-input">Nombre de la ciudad</label>
+          <div class="search-row">
+            <input
+              id="city-input"
+              name="city"
+              type="text"
+              maxlength="100"
+              autocomplete="off"
+              placeholder="Ej. Lima"
+              aria-describedby="validation-message"
+            />
+            <button type="submit">Buscar clima</button>
+          </div>
+          <p id="validation-message" class="validation-message" role="alert"></p>
+        </form>
+
+        <div id="loading-indicator" class="loading" role="status" aria-live="polite" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          Consultando el clima…
+        </div>
+        <p id="error-message" class="error-message" role="alert" hidden></p>
+        <section id="weather-display" class="weather-display" aria-live="polite" hidden></section>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
